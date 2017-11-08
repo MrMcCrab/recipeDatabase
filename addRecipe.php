@@ -34,7 +34,7 @@
             <form action="postRecipe.php" method="post">
               <div class="form-group" id="form">
                 <input class="form-control" id="input0" type="text" name="recipeName" placeholder="Reseptin nimi" value="">
-                <input class="form-control" id="input1" type="text" name="ingredient[]" placeholder="Ensimmäinen ainesosa" value="">
+                <input class="form-control" id="input1" type="text" name="recipe1" placeholder="Ensimmäinen ainesosa" value="">
               </div>
               <button class="btn btn-primary" type="submit" name="button">Tallenna resepti</button>
             </form>
@@ -58,9 +58,9 @@
         i++
         var input = document.createElement('input');
         input.setAttribute('class', 'form-control');
-        input.setAttribute('placeholder', 'ainesosa')
-        input.setAttribute('id', i)
-        input.setAttribute('name', 'ingredient[]')
+        input.setAttribute('placeholder', 'ainesosa');
+        input.setAttribute('id', i);
+        input.setAttribute('name', 'recipe' + i);
         var form = document.getElementById('form');
         form.appendChild(input);
       }
@@ -70,10 +70,10 @@
         var textArea = document.createElement('textarea');
         textArea.setAttribute('class', 'form-control');
         textArea.setAttribute('placeholder', 'Ohjeet')
-        textArea.setAttribute('rows', 6);
+        textArea.setAttribute('rows', 4);
         textArea.setAttribute('cols', 80);
         textArea.setAttribute('id', i)
-        textArea.setAttribute('name', 'recipe[]')
+        textArea.setAttribute('name', 'recipe' + i)
         var form = document.getElementById('form');
         form.appendChild(textArea);
       }
