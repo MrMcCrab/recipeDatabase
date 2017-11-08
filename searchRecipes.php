@@ -1,6 +1,7 @@
 
 <?php
   include 'header.php';
+  include 'database.php';
  ?>
 
   <body>
@@ -9,6 +10,7 @@
       <div class="row">
 
         <div class="col-md-4">
+          <a href="index.php">Etusivulle</a>
 
         </div>
 
@@ -32,10 +34,10 @@
         </div>
 
         <div class="col-md-4">
-          <form id="searchForm" class="" action="search.php" method="post">
+          <form id="searchForm" class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
               <input class="form-control" type="text" name="searchRecipeName" value="">
-            </div>      
+            </div>
           </form>
 
           <div class="row">
@@ -43,7 +45,7 @@
 
             </div>
             <div class="col-md-4">
-              <button class="btn btn-primary" type="submit" name="button" form="searchForm">hae</button>
+              <button class="btn btn-primary btn-block" type="submit" name="button" form="searchForm">hae</button>
             </div>
             <div class="col-md-4">
 
@@ -56,6 +58,39 @@
         </div>
 
       </div>
+
+
+      <div class="row">
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4">
+          <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+              $search = $_POST['searchRecipeName'];
+              $search2 = '%' . $search . '%';
+
+              $sql = "SELECT * from recipe where recipe_name like '$search2'";
+              $result = mysqli_query($db, $sql);
+
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                  echo '<a class="btn btn-outline-primary btn-block" href="recipe.php?id=' . $row['recipe_id'] . '">' . $row['recipe_name'] . '</a>' . '<br>';
+                }
+
+              }else {
+                echo "0 results";
+              }
+            }
+           ?>
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+      </div>
+
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
