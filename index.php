@@ -28,8 +28,8 @@
         </div>
 
         <div class="col-md-4">
-          <a href="addRecipe.php" class="btn btn-success">Lisää resepti</a>
           <a href="searchRecipes.php" class="btn btn-success">Etsi reseptejä</a>
+          <a href="addRecipe.php" class="btn btn-success">Lisää resepti</a>
         </div>
 
         <div class="col-md-4">
