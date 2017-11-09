@@ -10,3 +10,15 @@
 .jumbotron{
   background-color: white;
 }
+
+h3{
+  text-align: center;
+}
+
+.btn-search{
+  margin-bottom: 10px;
+}
+
+.btn-recipe{
+  margin-top: 0px
+}
