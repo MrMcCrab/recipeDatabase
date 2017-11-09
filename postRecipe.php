@@ -164,6 +164,7 @@
 
   if (mysqli_query($db, $sql)) {
     echo "New record created suffesfully";
+    header ("refresh:1 url=index.php");
   }else {
     echo "Error:" . $sql . mysqli_error($db);
   }
