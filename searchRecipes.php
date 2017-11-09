@@ -45,7 +45,7 @@
 
             </div>
             <div class="col-md-4">
-              <button class="btn btn-primary btn-block" type="submit" name="button" form="searchForm">hae</button>
+              <button class="btn btn-primary btn-block btn-search" type="submit" name="button" form="searchForm">hae</button>
             </div>
             <div class="col-md-4">
 
@@ -76,7 +76,7 @@
 
               if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                  echo '<a class="btn btn-outline-primary btn-block" href="recipe.php?id=' . $row['recipe_id'] . '">' . $row['recipe_name'] . '</a>' . '<br>';
+                  echo '<a class="btn btn-outline-primary btn-block btn-recipe" href="recipe.php?id=' . $row['recipe_id'] . '">' . $row['recipe_name'] . '</a>' . '<br>';
                 }
 
               }else {
